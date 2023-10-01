@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
+PORT = process.env.PORT;
 
 mongoose.connect(
     process.env.MONGODB_URI,
@@ -10,7 +11,7 @@ mongoose.connect(
     }
 );
 const app = express();
-app.listen(3000, () => console.log("Server is running"));
+app.listen(PORT, () => console.log(`Server is running @ ${PORT}`));
 
 // 2. Define a schema
 const studentSchema = new mongoose.Schema({
