@@ -39,12 +39,16 @@ stud
         (err) => console.log(err)
     );
 
-app.get('/', (req, res) => {
-    Student.find({}, (err, found) => {
+app.get('/s', (req, res) => {
+    /* Student.find({}, (err, found) => {
         if (!err) {
             res.send(found);
         }
         console.log(err);
         res.send("Some error occured!")
-    }).catch(err => console.log("Error occured, " + err));
+    }).catch(err => console.log("Error occured, " + err)); */
+    Student.find().then((data) => {
+        console.log(data);
+        res.send(data);
+    });
 });
